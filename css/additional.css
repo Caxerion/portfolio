@@ -1,0 +1,126 @@
+/* Add this at the beginning of your mobile media queries */
+@media (max-width: 768px) {
+  /* Prevent horizontal scrolling */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Adjust navigation container */
+  nav {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3px 15px;
+  }
+  
+  /* Adjust project carousel */
+  .projects-carousel {
+    padding: 0 10px;
+    overflow: hidden;
+  }
+  
+  .projects-carousel .owl-item {
+    padding: 0 5px;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  /* Navigation adjustments */
+  nav {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 30px 8px;
+    padding: 3px 15px;
+    box-sizing: border-box;
+  }
+  
+  /* ... rest of your existing styles ... */
+}
+
+/* Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  /* Prevent horizontal scrolling */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Adjust project carousel */
+  .projects-carousel {
+    padding: 0 5px;
+  }
+  
+  .projects-carousel .owl-item {
+    padding: 0 3px;
+  }
+  
+  /* Adjust project card dimensions */
+  .project-card {
+    height: 320px;
+  }
+  
+  .project-image {
+    height: 160px;
+  }
+  
+  /* Adjust skill items */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .skill-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  /* ... rest of your existing styles ... */
+}
+
+/* Extra Small Devices (320px and below) */
+@media (max-width: 320px) {
+  /* Adjust project carousel */
+  .projects-carousel {
+    padding: 0 3px;
+  }
+  
+  .projects-carousel .owl-item {
+    padding: 0 2px;
+  }
+  
+  /* Show only 1 project per slide */
+  .projects-carousel .owl-item {
+    width: 100%;
+  }
+  
+  .project-card {
+    height: 280px;
+  }
+  
+  .project-image {
+    height: 140px;
+  }
+  
+  /* Adjust skills section */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* ... rest of your existing styles ... */
+}
+
+/* Special fix for 380px screens */
+@media (max-width: 380px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  
+  .skill-item[data-skill="Android Studio"],
+  .skill-item[data-skill="Public Speaking"],
+  .skill-item[data-skill="WordPress"] {
+    font-size: 10px !important;
+    padding: 6px 2px !important;
+  }
+}
