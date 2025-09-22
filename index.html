@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />      
+   <link rel="stylesheet" href="src/style.css">
+   <link rel="stylesheet" href="css/additional.css">
+   <link rel="stylesheet" href="css/darktheme.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0"></script>
+   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+   <title>It's Kenneth</title>
+</head>
+<body>
+    <!-- Auth Check Script -->
+   <script>
+    //check auth status
+    (function () {
+      const isAuth = sessionStorage.getItem('portfolioAuth');
+      const authTime = sessionStorage.getItem('authTime');
+      const currentTime = Date.now();
+
+      //if not authenticated or session expired (1 hour), redirect to auth
+      if (!isAuth || !authTime || (currentTime - parseInt(authTime)) > 3600000) {
+        sessionStorage.removeItem('portfolioAuth');
+        sessionStorage.removeItem('authTime');
+        window.location.href = 'auth.html';
+        return; 
+      }
+
+      //update auth time for session extension 
+      sessionStorage.setItem('authTime', currentTime.toString());
+    })();
+   </script>
+   <!-- Welcome Popup -->
+  <div id="welcomePopup" class="welcome-popup">
+    <div class="popup-overlay"></div>
+    <div class="popup-content">
+        <div class="popup-header">
+            <h2>Welcome to My Portfolio!</h2>
+            <button class="popup-close" id="popupClose">&times;</button>
+        </div>
+        <div class="popup-body">
+            <div class="popup-icon">
+                <i class="fas fa-rocket" style="font-size: 25px;"></i>
+            </div>
+            <p>Thanks for visiting! Explore my projects, skills, and experience. Feel free to reach out if you'd like to collaborate.</p>
+            <div class="popup-actions">
+                <button class="popup-btn primary" id="exploreBtn">Explore Portfolio</button>
+                <button class="popup-btn secondary" id="contactBtn">Get In Touch</button>
+            </div>
+        </div>
+      </div>
+   </div>
+    <div class="container">
+        <nav id="header">
+            <div class="logo">
+                <a href="#home" class="nav-name">Kenn</a>
+                <span>.</span>
+            </div>
+            <div class="nav-menu" id="mynavmenu">
+                <ul class="nav_menu_list">
+                    <li class="nav_list">
+                        <a href="#about" class="nav-link">About</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#about" class="nav-link">Skills</a>
+                        <div class="circle"></div>
+                    </li>
+                     <li class="nav_list">
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#services" class="nav-link">Services</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#contact" class="nav-link">Contact</a>
+                        <div class="circle"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <button class="btn" id="downloadResume">My PDF Resume<i class="fa-regular fa-file-pdf"></i></button>
+            </div>
+            <div class="nav-menu-btn">
+               <i class="fa-solid fa-bars" onclick="myMenuFunction()"></i>
+            </div>
+            </nav>
+   
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+
+        <!------------- MAIN ------------->
+
+        <!-- starting page -->
+        <main class="wrapper">
+            <section class ="featured-box" id="home">
+                <div class="featured-text">
+                    <div class="featured-text-box">
+                        <h1>Kenneth Geveny <span class="name">Ayhuwan</span></h1>
+                    </div>
+                    <div class="featured-name">
+                        <p class>I'm a <span class="typedtext"></span></p>
+                    </div>
+                    <div class="featured-text-info">
+                        <p>A programmer who is extremely Junior in backend and intermediate frontend developer with a passion of creating visually stunning
+                            and user-friendly website
+                        </p>
+                       <a href="#about" class="btn">Know More</a>
+                        <a href="#contact" class="btn">Contact Me</a>
+                    </div>
+                    <div class="socials">
+                      <div class="icon">
+                        <a href="https://www.instagram.com/lenumzz__/" target="_blank" rel="noopener">
+                         <i class="fa-brands fa-instagram" style="font-size: 20px;"></i>
+                       </a>
+                   </div>
+                   <div class="icon">
+                       <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+                          <i class="fa-brands fa-linkedin" style="font-size: 20px;"></i>
+                      </a>
+                   </div>
+                   <div class="icon">
+                      <a href="https://github.com/Caxerion" target="_blank" rel="noopener">
+                         <i class="fa-brands fa-github" style="font-size: 20px;"></i>
+                     </a>
+                   </div>
+                   <div class="icon">
+                      <a href="https://www.reddit.com/user/Acrobatic-Tell-5500/" target="_blank" rel="noopener">
+                         <i class="fa-brands fa-reddit" style="font-size: 20px;"></i>
+                     </a>
+                   </div>
+                  </div>
+                  </div>
+                <div class="featured-image">
+                    <div class="image">
+                        <img src="images/kenneth.jpg" oncontextmenu="return false;" ondragstart="return false;" loading="lazy">
+                    </div>
+                </div>
+                </div>
+                <div class="starting">START</div>
+                <div class="scroll-down">
+                    <a href="#about" class="scroll-btn">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- about me -->
+            <section class="section" id="about">
+                <div class="top-header">
+                    <h1>About Me</h1>
+                </div>
+                <div class="row">
+                    <div class="col">
+                      <div class="about-info">
+                        <h3 class="mekenn">"It's me, Kenneth!"</h3>
+                        <div class="about-content">
+                        <div class="about-section">
+                        <p>Hey there! I'm Kenneth Geveny Ayhuwan and you can call me Kenneth, 
+                          a passionate and curious programmer with a strong interest in web development, 
+                          game development, and software engineering. 
+                          I'm always eager to learn new things and take advantage of every opportunity 
+                          to grow my skills.</p>
+                        </div>
+                        <div class="about-section">
+                        <p class="p2">
+                        My journey in programming began with Roblox in 2020 when I was just 
+                        12 years old, creating interactive UIs and GUIs for my games by watching some tutorials. 
+                        A few years later, I discovered website development and became eager to explore 
+                        this field further. This diverse background has given me a unique perspective 
+                        on both frontend and backend development.
+                        </p>
+                        </div>
+                        </div>
+                        <div class="about-btn">
+                        <button class="btn" id="downloadCV">Download my CV<i class="fa-solid fa-download"></i></button>
+                        </div>
+                        </div>
+                      </div>
+
+                      <!-- skills -->
+<div class="collapse">
+<div class="collapse-header" onclick="toggleCollapse()">
+  <i class="fas fa-brain header-icon"></i>
+  <h3 class="col-title">Skill Highlights</h3>
+  <i class="fas fa-chevron-down collapse-icon"></i>
+</div>
+  <div class="collapse-content">
+    <div class="skills-category-tabs">
+      <button class="category-tab active" data-category="frontend" onclick="switchCategory('frontend')">
+        <i class="fas fa-laptop-code"></i> Frontend
+      </button>
+      <button class="category-tab" data-category="backend" onclick="switchCategory('backend')">
+        <i class="fas fa-gear"></i> Backend
+      </button>
+      <button class="category-tab" data-category="design" onclick="switchCategory('design')">
+        <i class="fas fa-palette"></i> Design
+      </button>
+      <button class="category-tab" data-category="gamedev" onclick="switchCategory('gamedev')">
+        <i class="fas fa-gamepad"></i> Game Dev
+      </button>
+    </div>
+    <div class="skills-category-tabs">
+      <button class="category-tab" data-category="Database" onclick="switchCategory('Database')">
+        <i class="fa-solid fa-database"></i> Database
+      </button>
+      <button class="category-tab" data-category="tools" onclick="switchCategory('tools')">
+        <i class="fa-solid fa-tools"></i> App Tools
+      </button>
+      <button class="category-tab" data-category="other" onclick="switchCategory('other')">
+        <i class="fas fa-ellipsis-h"></i> Other
+      </button>
+    </div>
+    
+    <div class="skills-container">
+      <div class="skills-list" id="frontend-skills">
+        <div class="skills-grid">
+          <div class="skill-item" data-percentage="80">HTML5<i class="fab fa-html5"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 80%"></div>
+              <div class="skill-percentage-tooltip">80%</div>
+            </div>
+          </div>
+          <div class="skill-item" data-percentage="80">CSS3<i class="fa-brands fa-css3-alt"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 80%"></div>
+              <div class="skill-percentage-tooltip">80%</div>
+            </div>
+          </div>
+          <div class="skill-item" data-percentage="50">JavaScript<i class="fab fa-js"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 50%"></div>
+              <div class="skill-percentage-tooltip">50%</div>
+            </div>
+          </div>
+          <div class="skill-item" data-percentage="40">React JS<i class="fab fa-react"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 40% "></div>
+              <div class="skill-percentage-tooltip">40%</div>
+            </div>
+          </div>
+          <div class="skill-item" data-percentage="55">Vanilla<i class="fa-solid fa-ice-cream"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 55% "></div>
+              <div class="skill-percentage-tooltip">55%</div>
+            </div>
+          </div>
+           <div class="skill-item" data-percentage="65">Bootstrap<i class="fa-brands fa-bootstrap"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 65%"></div>
+              <div class="skill-percentage-tooltip">65%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="skills-list" id="backend-skills">
+        <div class="skills-grid">
+          <div class="skill-item" data-percentage="40">Node JS<i class="fab fa-node-js"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 40%"></div>
+              <div class="skill-percentage-tooltip">40%</div>
+            </div>
+          </div>
+          <div class="skill-item" data-percentage="45">PHP
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 45%"></div>
+              <div class="skill-percentage-tooltip">45%</div>
+            </div>
+          </div>
+          <div class="skill-item" data-percentage="35">Python<i class="fab fa-python"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 35%"></div>
+              <div class="skill-percentage-tooltip">35%</div>
+            </div>
+          </div>
+          <div class="skill-item" data-percentage="45">Laravel <i class="fab fa-laravel"></i>
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 45%"></div>
+              <div class="skill-percentage-tooltip">40%</div>
+            </div>
+          </div>
+          <div class="skill-item" data-percentage="15">REST APIs
+            <div class="skill-progress-container">
+              <div class="skill-progress-bar" style="width: 15%"></div>
+              <div class="skill-percentage-tooltip">15%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+            <div class="skills-list" id="other-skills" style="display: none;">
+              <div class="skills-grid">
+                <div class="skill-item" data-percentage="75">MS Word
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 75%"></div>
+                    <div class="skill-percentage-tooltip">75%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="70">MS Excel
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 70%"></div>
+                    <div class="skill-percentage-tooltip">70%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="40">Android Studio<i class="fa-solid fa-mobile"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 40%"></div>
+                    <div class="skill-percentage-tooltip">40%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="50">Mentoring
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 50%"></div>
+                    <div class="skill-percentage-tooltip">50%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="75">Public Speaking<i class="fa-solid fa-comment"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 75%"></div>
+                    <div class="skill-percentage-tooltip">75%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+  
+            <div class="skills-list" id="design-skills" style="display: none;">
+              <div class="skills-grid">
+                <div class="skill-item" data-percentage="60">Figma<i class="fa-brands fa-figma"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 60%"></div>
+                    <div class="skill-percentage-tooltip">60%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="50%">Blender<i class="fas fa-cube"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 50%"></div>
+                    <div class="skill-percentage-tooltip">50%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="45">Photoshop <i class="fa-solid fa-images"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 45%"></div>
+                    <div class="skill-percentage-tooltip">45%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="85">MS PowerPoint
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 85%"></div>
+                    <div class="skill-percentage-tooltip">85%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="60">UI/UX Design
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 60%"></div>
+                    <div class="skill-percentage-tooltip">60%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="90">Canva <i class="fa-solid fa-paintbrush"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 90%"></div>
+                    <div class="skill-percentage-tooltip">90%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="50">Prototyping
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 50%"></div>
+                    <div class="skill-percentage-tooltip">50%</div>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+ 
+            <div class="skills-list" id="gamedev-skills" style="display: none;">
+              <div class="skills-grid">
+                <div class="skill-item" data-percentage="60">Roblox Studio
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 60%"></div>
+                    <div class="skill-percentage-tooltip">60%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="25">C++
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 25%"></div>
+                    <div class="skill-percentage-tooltip">25%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="55">Moon Animator (Roblox)<i class="fas fa-running"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 55%"></div>
+                    <div class="skill-percentage-tooltip">55%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="55">Lua <i class="devicon-lua-plain"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 55%"></div>
+                    <div class="skill-percentage-tooltip">55%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-list" id="database-skills" style="display: none;">
+              <div class="skills-grid">
+                <div class="skill-item" data-percentage="55">MySQL<i class="devicon-mysql-original" style="font-size: 24px;"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 55%"></div>
+                    <div class="skill-percentage-tooltip">55%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="30">PostgreSQL<i class="fas fa-database"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 30%"></div>
+                    <div class="skill-percentage-tooltip">30%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="20">MongoDB<i class="devicon-mongodb-plain" style="font-size: 25px;"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 20%"></div>
+                    <div class="skill-percentage-tooltip">20%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="40">SQLite <i class="devicon-sqlite-plain"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 40%"></div>
+                    <div class="skill-percentage-tooltip">40%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-list" id="tools-skills" style="display: none;">
+              <div class="skills-grid">
+                <div class="skill-item" data-percentage="60">GitHub<i class="fa-brands fa-github"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 60%"></div>
+                    <div class="skill-percentage-tooltip">60%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="70">VS Code <i class="fa-solid fa-code"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 70%"></div>
+                    <div class="skill-percentage-tooltip">70%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="60">Postman <i class="fas fa-envelope"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 60%"></div>
+                    <div class="skill-percentage-tooltip">60%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="50">Terminal<i class="fas fa-terminal"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 50%"></div>
+                    <div class="skill-percentage-tooltip">50%</div>
+                  </div>
+                </div>
+                 <div class="skill-item" data-percentage="60">WordPress<i class="fa-brands fa-wordpress"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 60%"></div>
+                    <div class="skill-percentage-tooltip">60%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="70">Replit <i class="devicon-replit-plain"></i>
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 70%"></div>
+                    <div class="skill-percentage-tooltip">70%</div>
+                  </div>
+                </div>
+                <div class="skill-item" data-percentage="40">NPM
+                  <div class="skill-progress-container">
+                    <div class="skill-progress-bar" style="width: 40%"></div>
+                    <div class="skill-percentage-tooltip">40%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+            
+        
+                    
+                    </div>
+                </div>
+            </section>
+
+            <!-- projects -->
+            <section class="projects" id="projects">
+              <h1>Recent Projects</h1>
+              <p class="project-desc">Here are some of the projects I've worked on, 
+                showcasing my skills in design, development, and 
+                problem-solving. Each project reflects my passion for creating 
+                impactful digital experiences.</p>
+
+              
+              <div class="projects-carousel owl-carousel owl-theme">
+                <!-- My Suggested Projects -->
+                <div class="project-card" id="project1">
+                  <div class="project-tooltip"><div>HTML5<i class="fab fa-html5"></i></div></i> 
+                    <div>CSS3<i class="fab fa-css3-alt"></i></div><div>Javascript<i class="fab fa-js"></i></div><div>Vanilla<i class="fa-solid fa-ice-cream"></i></div></div>
+                  <div class="project-image">
+                    <img src="images/portfolio.png" alt="Project 1" loading="lazy">
+                  </div>
+                  <div class="project-content">
+                    <h3>Kenneth's Portfolio</h3>
+                    <p> My current portfolio website is a showcase of my skills
+                       Built to leave a lasting impression  </p>
+                    <div class="project-actions">
+                      <button class="btn project-btn" onclick="location.href='#home'">View Details</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="project-card" id="project2">
+                  <div class="project-tooltip"><div>Lua (Roblox)<i class="devicon-lua-plain"></i></div></div> 
+                  <div class="project-image">
+                    <img src="images/theafk.png" alt="Project 2" loading="lazy">
+                  </div>
+                  <div class="project-content">
+                    <h3>The AFK Hangout game (Roblox)</h3>
+                    <p>One of my Roblox showcase game, with themes of
+                      sunset and camp also simple starting GUI.
+                    </p>
+                    <div class="project-actions">
+                      <button class="btn project-btn" onclick="location.href='https://www.roblox.com/games/125981675816988/THE-AFK'">View Details</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="project-card" id="project3">
+                  <div class="project-tooltip"><div>HTML5<i class="fab fa-html5"></i></div></i> 
+                    <div>CSS3<i class="fab fa-css3-alt"></i></div> <div>Javascript<i class="fab fa-js"></i></div>
+                  </div>
+                  <div class="project-image">
+                    <img src="images/itemcount3.png" alt="Project 3" loading="lazy">
+                  </div>
+                  <div class="project-content">
+                    <h3>ItemCount website</h3>
+                    <p>A simple CSS layout of ItemCount website page that is use for
+                       calculate items you had.
+                    </p>
+                    <div class="project-actions">
+                      <button class="btn project-btn" onclick="location.href='https://caxerion.github.io/ItemCountReal/index.html'">View Details</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="project-card" id="project4">
+                  <div class="project-tooltip"><div>HTML5<i class="fab fa-html5"></i></div></i> 
+                    <div>CSS3<i class="fab fa-css3-alt"></i></div> <div>Javascript<i class="fab fa-js"></i></div></div>
+                  <div class="project-image">
+                    <img src="images/ngopiriyen.png" alt="Project 4" loading="lazy">
+                  </div>
+                  <div class="project-content">
+                    <h3>Ngopi Riyen website</h3>
+                    <p>A simple coffee shop website, with a smooth behavior and sidebars, 
+                      also used for my portfolio.</p>
+                    <div class="project-actions">
+                      <button class="btn project-btn" onclick="location.href='http://coffeengab.fiuzeanet.my.id/html/home.html#'">View Details</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="project-card" id="project5">
+                  <div class="project-tooltip"><div>HTML5<i class="fab fa-html5"></i></div></i> 
+                    <div>CSS3<i class="fab fa-css3-alt"></i></div><div>Javascript<i class="fab fa-js"></i></div><div class="ongoing">*Currently still ongoing!*</div></div>
+                  <div class="project-image">
+                    <img src="images/furniture_temp.jpg" alt="Project 5" loading="lazy">
+                  </div>
+                  <div class="project-content">
+                    <h3>Erfune furniture website</h3>
+                    <p>A website that provides home furnitures for a fancy and elegant look.</p>
+                    <div class="project-actions">
+                      <button class="btn project-btn">View Details</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="project-card" id="project6">
+                  <div class="project-tooltip"><div>Lua (Roblox)<i class="devicon-lua-plain"></i></div><div class="ongoing">*Currently ongoing!*</div></div>
+                  <div class="project-image">
+                    <img src="images/indieomori2.png" alt="Project 6" loading="lazy">
+                  </div>
+                  <div class="project-content">
+                    <h3>Guess the indie game characters (Roblox)</h3>
+                    <p>My latest game project on Roblox, all is about a simple game of guessing characters from each indie games.</p>
+                    <div class="project-actions">
+                      <button class="btn project-btn">View Details</button>
+                    </div>
+                  </div>
+                </div>
+               </div>
+              </div>
+
+              <!-- achieved goals -->
+              <div class="achieved"> 
+              <h2>Achieved Goals</h2>
+              <div class="achievements-container">
+                  <div class="achievement-card">
+                      <i class="fa-solid fa-award"></i>
+                      <h3>2 YEARS OF EXPERIENCE</h3>
+                      <p>Two years of turning ideas into code, designs into interfaces, and challenges into learning opportunities and I'm new also just getting started.</p>
+                  </div>
+                  <div class="achievement-card">
+                     <i class="fa-solid fa-suitcase"></i>
+                      <h3>4 COMPLETED PROJECTS</h3>
+                      <p>Successfully built four complete projects, showcasing my proficiency in Web developing and Roblox game devloping.</p>
+                  </div>
+                  <div class="achievement-card">
+                      <i class="fa-solid fa-hammer"></i>
+                      <h3>CURRENTLY STILL LEARNING</h3>
+                      <p>Although I have a strong base at website developing. I'm continuously learning to improve my skills in other aspects.</p>
+                  </div>
+              </div>
+              </div>
+
+              <!-- services -->
+              <div class="services" id="services">
+                <h1>Available Services</h1>
+                 <p class="services-desc">Here are some of the projects I've worked on, 
+                showcasing my skills in design, development, and 
+                problem-solving. Each project reflects my passion for creating 
+                impactful digital experiences.</p>
+                <div class="services-container">
+                  <div class="service-card" id="service1">
+                    <i class="fa-solid fa-medal"></i>
+                    <span class="icon-stamp">SIMPLE</span>
+                    <h3>Roblox starting badge</h3>
+                    <p>Creating a simple responsive starting/welcome badge in your Roblox experience.</p>
+                     <a href="../kenneth_portfolio/robloxbadge.html" class="viewmore">View More</a>
+                  </div>
+                  <div class="service-card" id="service2">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span class="icon-stamp">SIMPLE</span>
+                    <h3>Website starting page</h3>
+                    <p>Making a simple starting responsive page of your website, including a clean layout, modern design elements</p>
+                    <a href="../kenneth_portfolio/otherweb/webstarting.html">View More</a>
+                  </div>
+                  <div class="service-card" id="service3">
+                    <i class="fa-solid fa-lightbulb "></i>
+                    <span class="icon-stamp">PRO</span>
+                    <h3>Roblox map lighting</h3>
+                    <p>Enhance map's lighting and creating immersive atmospheres, realistic shadows, and dynamic environments.</p>
+                    <a href="#">View More</a>
+                  </div>
+                  <div class="service-card" id="service4">
+                    <i class="fa-solid fa-code"></i>
+                    <span class="icon-stamp">SOON</span>
+                    <h3>Coming soon</h3>
+                    <p>Something new is coming! Stay tuned for updates and check back soon to see what I've working on behind the scenes as I expand my skills.</p>
+                  </div>
+                  <div class="service-card" id="service5">
+                    <i class="fa-solid fa-code"></i>
+                    <span class="icon-stamp">SOON</span>
+                    <h3>Coming soon</h3>
+                    <p>Something new is coming! Stay tuned for updates and check back soon to see what I've working on behind the scenes as I expand my skills.</p>
+                  </div>
+            </section>
+   <section id="contact" class="contact-section">
+  <div class="container-contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">Keep in touch with me, contact me if it's neccessary!</p>
+    
+      <div class="contact-container">
+        <form action="https://api.web3forms.com/submit" method="POST">
+      <div class="contact-form">
+          <div class="form-group">
+             <input type="hidden" name="access_key" value="b8372ac7-5731-4de6-b195-22d8cbbbb5ea">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
+          <button type="submit" class="submit-btn" onclick="sendMail()">Submit Response</button>
+        </form>
+        <div id="formMessage" class="form-message"></div>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3>Phone</h3>
+            <p>+62 882 9473-0740</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="icon">
+            <i class="fa-regular fa-envelope" style="font-size: 25px;"></i>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <a href="mailto:kenneth.gevenyay@gmail.com" class="gmail">kenneth.gevenyay@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div>
+            <h3>Location</h3>
+            <p>Tangerang City, Indonesia</p>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <div class="icon">
+            <a href="https://www.instagram.com/lenumzz__/" target="_blank" rel="noopener">
+              <i class="fa-brands fa-instagram" style="font-size: 20px;"></i>
+             </a>
+          </div>
+          <div class="icon">
+           <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+             <i class="fa-brands fa-linkedin"  style="font-size: 20px;"></i>
+            </a>
+          </div>
+          <div class="icon">
+            <a href="https://github.com/Caxerion" target="_blank" rel="noopener">
+             <i class="fa-brands fa-github"  style="font-size: 20px;"></i>
+            </a>
+                   </div>
+                   <div class="icon">
+             <a href="https://www.reddit.com/user/Acrobatic-Tell-5500/" target="_blank" rel="noopener">
+                <i class="fa-brands fa-reddit"  style="font-size: 20px;"></i>
+              </a>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="foot">
+<footer>
+        &copy; 2025 Kenneth's Portfolio | Kenneth Geveny Ayhuwan, All rights reserved
+        All other trademarks belong to their respective owners.
+      </footer>
+</section>
+  </main>
+</div>
+
+    <!-- icons8 -->
+    <script src="https://cdn.jsdelivr.net/npm/i8-icon@0.9.4/index.min.js"></script>
+    <!-- typing effect -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- javascript link -->
+    <script src="src/main.js"></script>
+</body>
+</html>
+
+

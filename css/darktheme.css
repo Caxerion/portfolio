@@ -1,0 +1,292 @@
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    /* Background Colors */
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #0f0f0f;
+    --bg-tertiary: #191919;
+    --bg-overlay: rgba(0, 0, 0, 0.8);
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    /* --text-secondary: #cccccc; */
+    --text-third: #aaaaaa;
+    --text-tertiary: #a855f7;
+    --text-tertiary2: #8b5cf6;
+    --text-light: #ffffff;
+    --text-nav: #e0e0e0;
+    --text-about: #ffffff;
+
+    /* Button Colors */
+    --btn-primary: #7800e9;
+    --btn-primary-hover: #6500c3;
+    --btn-primary-text: #ffffff;
+    --btn-secondary: #2a2a2a;
+    --btn-secondary-hover: #3a3a3a;
+    --btn-secondary-text: #502b74;
+    --btn-outline: transparent;
+    --btn-outline-hover: #a855f7;
+    --btn-outline-text: #a855f7;
+    --btn-outline-text-hover: #ffffff;
+
+    /* Border Colors */
+    --border-primary: #a855f7;
+    --border-secondary: #404040;
+    --border-light: #333333;
+    --border-dark: #555555;
+
+    /* Shadow Colors */
+    --shadow-sm: rgba(168, 85, 247, 0.1);
+    --shadow-md: rgba(168, 85, 247, 0.15);
+    --shadow-lg: rgba(168, 85, 247, 0.2);
+    --shadow-xl: rgba(168, 85, 247, 0.25);
+    --shadow-2xl: rgba(168, 85, 247, 0.3);
+    --shadow-inner: rgba(168, 85, 247, 0.05);
+
+    /* Gradient Colors */
+    --gradient-primary: linear-gradient(135deg, #a855f7, #9333ea);
+    --gradient-secondary: linear-gradient(135deg, #9333ea, #a855f7);
+    --gradient-light: linear-gradient(135deg, rgba(42, 42, 42, 0.1), rgba(74, 74, 74, 0.1));
+    --gradient-skill: linear-gradient(90deg, #a855f7, #9333ea);
+
+    /* Special Colors */
+    --accent-color: #a855f7;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+
+    /* Opacity Variations */
+    --primary-purple-10: rgba(168, 85, 247, 0.1);
+    --primary-purple-20: rgba(168, 85, 247, 0.2);
+    --primary-purple-30: rgba(168, 85, 247, 0.3);
+    --primary-purple-40: rgba(168, 85, 247, 0.4);
+    --primary-purple-50: rgba(168, 85, 247, 0.5);
+
+    /* Body and Navigation Colors */
+    --body-color: var(--bg-primary);
+    --color-white: var(--bg-secondary);
+    --color-gray: rgba(255, 255, 255, 0.1);
+    --text-color: var(--text-primary);
+    --text-color-secondary: var(--text-secondary);
+    --text-color-thirdary: var(--text-tertiary);
+    --text-color-nav: var(--text-nav);
+    --about-text-color: var(--text-about);
+    --first-color: var(--accent-color);
+    --first-color-hover: var(--btn-primary-hover);
+    --second-color-hover: var(--border-dark);
+    --third-color-hover: var(--accent-color);
+    --fourth-color-hover: var(--btn-primary-hover);
+    --second-color: var(--bg-secondary);
+    --third-color: var(--text-third);
+    --fourth-color: var(--accent-color);
+    --first-shadow-color: rgba(168, 85, 247, 0.1);
+}
+
+::-webkit-scrollbar-track {
+  background: #222222;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] img {
+   border: 2px solid white;
+   box-shadow: 0 4px 55px rgba(110, 0, 236, 0.948);
+}
+
+[data-theme="dark"] .featured-text-box,
+[data-theme="dark"] .featured-name {
+    color: #ffffff;
+}
+
+/* Dark Theme Form Inputs */
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+    border-color: #a855f7;
+}
+
+/* Dark Theme Collapse and Skills */
+[data-theme="dark"] .collapse-header {
+    background: #2a2a2a;
+    border-color: #a855f7;
+}
+
+[data-theme="dark"] .col-title {
+   color: #ffffff;
+}
+
+[data-theme="dark"] .collapse-content {
+    background: rgba(42, 42, 42, 0.3);
+}
+
+[data-theme="dark"] .skill-item {
+    background: #222222;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .category-tab {
+    background: rgba(42, 42, 42, 0.5);
+    color: #ffffff;
+}
+
+[data-theme="dark"] .category-tab:hover,
+[data-theme="dark"] .category-tab.active {
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Dark Theme Cards */
+[data-theme="dark"] .project-card {
+    background: linear-gradient(135deg, rgba(42, 42, 42, 0.95), rgba(64, 64, 64, 0.98));
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+[data-theme="dark"] .achieved h2{
+    color: #ffffff;
+}
+
+[data-theme="dark"] .achieved h3{
+    color: #cccccc;
+}
+
+
+[data-theme="dark"] .achieved p{
+    color: #ffffff;
+}
+
+[data-theme="dark"] .achievement-card {
+    background: rgb(41, 41, 41);
+    /* border-color: rgba(24, 24, 24, 0.3); */
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .achievement-card:hover {
+    border-color: transparent;
+}
+
+[data-theme="dark"] .achievement-card:hover h3 {
+    color: var(--btn-outline-hover);
+}
+
+[data-theme="dark"] .services h1{
+    color: #ffffff;
+}
+
+[data-theme="dark"] .scroll-btn,
+[data-theme="dark"] .starting { 
+    color: white;
+}
+
+[data-theme="dark"] .achievement-card:hover i {
+    color:  rgba(226, 226, 226, 0.978);
+}
+
+[data-theme="dark"] .service-card {
+    background: rgb(50, 50, 50);
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+[data-theme="dark"] .service-card h3 {
+    color: #f9f9f9;
+}
+
+[data-theme="dark"] .service-card a {
+    color: #b52dff;
+}
+
+[data-theme="dark"] .service-card:hover h3 {
+    color: var(--first-color);
+    transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .service-card:hover p,
+[data-theme="dark"] .service-card a:hover  {
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .contact-info {
+    background: rgb(24, 24, 24);
+}
+
+[data-theme="dark"] .contact-info h3 {
+    color: rgb(227, 227, 227);
+}
+
+[data-theme="dark"] .contact-section h2 {
+    color: rgb(227, 227, 227);
+}
+
+[data-theme="dark"] .form-group label {
+    color: rgb(227, 227, 227);
+}
+
+[data-theme="dark"] nav .btn:hover {
+    border: 1px solid;
+    background: #ffffff;
+    color: var(--first-color);
+    box-shadow: white;
+}
+
+[data-theme="dark"] nav.navbar-scrolled .btn {
+    border: 1px solid;
+    background: none;
+}
+
+[data-theme="dark"] nav.navbar-scrolled .btn:hover {
+    background: var(--first-color);
+    color: white;
+    border: 1px solid var(--first-color);
+}
+
+[dark-theme="dark"].skills-category-tabs {
+  background: var(--first-color);
+  color: white;
+}
+
+[data-theme="dark"] #downloadCV {
+    border: none;
+    box-shadow: none;
+}
+
+[data-theme="dark"] nav.navbar-scrolled {
+    background: #1a1a1a !important;
+    border-color: #1a1a1a !important;
+}
+
+[data-theme="dark"] .about-info {
+    background: linear-gradient(135deg, rgba(64, 64, 64, 0.2), rgba(96, 96, 96, 0.2));
+}
+
+[data-theme="dark"] .featured-text-info {
+     color: #ffffff;
+}
+[data-theme="dark"] footer {
+    color: #a2a2a2;
+    background: #1a1a1a !important;
+    border: none;
+}
+
+/* Dark theme styles for theme toggle */
+[data-theme="dark"] .theme-toggle {
+    background: var(--bg-secondary);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(168, 85, 247, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: var(--accent-color);
+    color: var(--text-primary);
+    border-color: var(--accent-color);
+    box-shadow:
+        0 4px 12px rgba(168, 85, 247, 0.3),
+        0 0 20px rgba(147, 51, 234, 0.4);
+}

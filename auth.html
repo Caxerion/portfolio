@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/auth.css">
+    <title>Welcome - Kenneth's Portfolio</title>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+        </div>
+        
+        <div class="auth-content">
+            <div class="auth-header">
+                <div class="logo-container">
+                    <div class="logo-circle">
+                        <span class="logo-text">K</span>
+                    </div>
+                </div>
+                <h1 class="welcome-title">Welcome to Kenneth's Portfolio</h1>
+                <p class="welcome-subtitle">Discover my journey as a developer</p>
+            </div>
+            
+            <div class="auth-main">
+                <div class="profile-preview">
+                    <div class="profile-info">
+                        <h2>Kenneth Geveny <span class="last-name">Ayhuwan</span></h1></h2>
+                        <p class="profile-role">
+                            <span class="typing-text"></span>
+                            <span class="cursor">|</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="auth-actions">
+                    <button class="enter-btn" id="enterPortfolio">
+                        <span class="btn-text">Enter Portfolio</span>
+                        <div class="btn-icon">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="btn-ripple"></div>
+                    </button>
+                    <div class="warning">
+                        <p><i class="fa-solid fa-triangle-exclamation"></i>*Highly recommend you to use laptop or pc due to mobile lacking responsiveness*</p>
+                    </div>
+                    
+                    <div class="quick-links">
+                        <a href="https://www.instagram.com/lenumzz__/" target="_blank" class="quick-link" data-tooltip="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="quick-link" data-tooltip="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/Caxerion" target="_blank" class="quick-link" data-tooltip="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.reddit.com/user/Acrobatic-Tell-5500/" target="_blank" class="quick-link" data-tooltip="Reddit">
+                            <i class="fab fa-reddit"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="auth-footer">
+                <p>&copy; 2025 Kenneth's Portfolio | Kenneth Geveny Ayhuwan. All rights reserved.</p>
+            </div>
+        </div>
+        
+        <!-- Loading overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-content">
+                <div class="loading-spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                </div>
+                <p class="loading-text">Loading Portfolio...</p>
+                <div class="loading-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="src/auth.js"></script>
+</body>
+</html>

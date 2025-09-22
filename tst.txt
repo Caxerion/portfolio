@@ -1,0 +1,112 @@
+   <!-- Contact -->
+    <div class="contact-container">
+      <form action="https://api.web3forms.com/submit" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <input type="hidden" name="access_key" value="b8372ac7-5731-4de6-b195-22d8cbbbb5ea">
+          <input type="hidden" name="redirect" value="https://web3forms.com/success">
+          <button type="submit" class="submit-btn">Submit Response</button>
+        </form>
+        <div id="formMessage" class="form-message"></div>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3>Phone</h3>
+            <p>+62 882 9473-0740</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="icon">
+            <i class="fa-regular fa-envelope" style="font-size: 25px;"></i>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <a href="mailto:kenneth.gevenyay@gmail.com" class="gmail">kenneth.gevenyay@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div>
+            <h3>Location</h3>
+            <p>Tangerang City, Indonesia</p>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <div class="icon">
+            <a href="https://www.instagram.com/lenumzz__/" target="_blank" rel="noopener">
+              <i class="fa-brands fa-instagram" style="font-size: 20px;"></i>
+             </a>
+          </div>
+          <div class="icon">
+           <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+             <i class="fa-brands fa-linkedin"  style="font-size: 20px;"></i>
+            </a>
+          </div>
+          <div class="icon">
+            <a href="https://github.com/Caxerion" target="_blank" rel="noopener">
+             <i class="fa-brands fa-github"  style="font-size: 20px;"></i>
+            </a>
+                   </div>
+                   <div class="icon">
+             <a href="https://www.reddit.com/user/Acrobatic-Tell-5500/" target="_blank" rel="noopener">
+                <i class="fa-brands fa-reddit"  style="font-size: 20px;"></i>
+              </a>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="foot">
+<footer>
+        &copy; 2025 Kenneth's Portfolio | Kenneth Geveny Ayhuwan, All rights reserved
+        All other trademarks belong to their respective owners.
+      </footer>
+</section>
+
+ <script>
+        // Check authentication status
+        (function() {
+            const isAuth = sessionStorage.getItem('portfolioAuth');
+            const authTime = sessionStorage.getItem('authTime');
+            const currentTime = Date.now();
+            
+            // If not authenticated or session expired (1 hour), redirect to auth
+            if (!isAuth || !authTime || (currentTime - parseInt(authTime)) > 3600000) {
+                sessionStorage.removeItem('portfolioAuth');
+                sessionStorage.removeItem('authTime');
+                window.location.href = 'auth.html';
+                return;
+            }
+            
+            // Update auth time for session extension
+            sessionStorage.setItem('authTime', currentTime.toString());
+        })();
+    </script>
