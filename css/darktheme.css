@@ -83,7 +83,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #222222;
+  background: #717171
   border-radius: 4px;
 }
 
@@ -289,4 +289,5 @@
     box-shadow:
         0 4px 12px rgba(168, 85, 247, 0.3),
         0 0 20px rgba(147, 51, 234, 0.4);
+
 }
